@@ -1,0 +1,191 @@
+{
+    "router2": {
+        "ppp[0]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 0,
+            "source": 2,
+            "target": 3
+        },
+        "ppp[1]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 1,
+            "source": 2,
+            "target": 4
+        },
+        "ppp[2]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 2,
+            "source": 2,
+            "target": 6
+        },
+        "ppp[3]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 3,
+            "source": 2,
+            "target": 1
+        },
+        "ppp[4]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 4,
+            "source": 2,
+            "target": 2
+        }
+    },
+    "router1": {
+        "ppp[0]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 0,
+            "source": 1,
+            "target": 2
+        },
+        "ppp[1]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 1,
+            "source": 1,
+            "target": 3
+        },
+        "ppp[2]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 2,
+            "source": 1,
+            "target": 5
+        },
+        "ppp[3]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 3,
+            "source": 1,
+            "target": 1
+        }
+    },
+    "router3": {
+        "ppp[0]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 0,
+            "source": 3,
+            "target": 2
+        },
+        "ppp[1]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 1,
+            "source": 3,
+            "target": 1
+        },
+        "ppp[2]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 2,
+            "source": 3,
+            "target": 6
+        },
+        "ppp[3]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 3,
+            "source": 3,
+            "target": 4
+        },
+        "ppp[4]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 4,
+            "source": 3,
+            "target": 3
+        }
+    },
+    "router4": {
+        "ppp[0]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 0,
+            "source": 4,
+            "target": 3
+        },
+        "ppp[1]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 1,
+            "source": 4,
+            "target": 2
+        },
+        "ppp[2]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 2,
+            "source": 4,
+            "target": 7
+        },
+        "ppp[3]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 3,
+            "source": 4,
+            "target": 3
+        }
+    },
+    "router7": {
+        "ppp[0]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 0,
+            "source": 7,
+            "target": 4
+        },
+        "ppp[1]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 1,
+            "source": 7,
+            "target": 7
+        }
+    },
+    "router6": {
+        "ppp[0]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 0,
+            "source": 6,
+            "target": 3
+        },
+        "ppp[1]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 1,
+            "source": 6,
+            "target": 2
+        },
+        "ppp[2]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 2,
+            "source": 6,
+            "target": 6
+        }
+    },
+    "router5": {
+        "ppp[0]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 0,
+            "source": 5,
+            "target": 1
+        },
+        "ppp[1]": {
+            "bandwidth": 1000000,
+            "weight": 1,
+            "port": 1,
+            "source": 5,
+            "target": 5
+        }
+    }
+}

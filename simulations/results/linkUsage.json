@@ -1,0 +1,229 @@
+{
+    "links": [
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 5,
+            "dst": 1,
+            "port": 0,
+            "host": ""
+        },
+        {
+            "avg_utilization": 2.05536,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 5.950280835338313e-06,
+            "src": 5,
+            "dst": 5,
+            "port": 1,
+            "host": ""
+        },
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 1,
+            "dst": 2,
+            "port": 0,
+            "host": ""
+        },
+        {
+            "avg_utilization": 12.731264,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.008050709029595,
+            "src": 1,
+            "dst": 3,
+            "port": 1,
+            "host": ""
+        },
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 1,
+            "dst": 5,
+            "port": 2,
+            "host": ""
+        },
+        {
+            "avg_utilization": 12.252512,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.005406457229097625,
+            "src": 1,
+            "dst": 1,
+            "port": 3,
+            "host": ""
+        },
+        {
+            "avg_utilization": 14.728288,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.002216034197968375,
+            "src": 3,
+            "dst": 2,
+            "port": 0,
+            "host": ""
+        },
+        {
+            "avg_utilization": 11.924288,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.008274145472414375,
+            "src": 3,
+            "dst": 1,
+            "port": 1,
+            "host": ""
+        },
+        {
+            "avg_utilization": 17.509888,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.020880721645818123,
+            "src": 3,
+            "dst": 6,
+            "port": 2,
+            "host": ""
+        },
+        {
+            "avg_utilization": 16.826624,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.028245577516724376,
+            "src": 3,
+            "dst": 4,
+            "port": 3,
+            "host": ""
+        },
+        {
+            "avg_utilization": 8.494656,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.00031666765539065626,
+            "src": 3,
+            "dst": 3,
+            "port": 4,
+            "host": ""
+        },
+        {
+            "avg_utilization": 9.790752,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.003598579361942937,
+            "src": 2,
+            "dst": 3,
+            "port": 0,
+            "host": ""
+        },
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 2,
+            "dst": 4,
+            "port": 1,
+            "host": ""
+        },
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 2,
+            "dst": 6,
+            "port": 2,
+            "host": ""
+        },
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 2,
+            "dst": 1,
+            "port": 3,
+            "host": ""
+        },
+        {
+            "avg_utilization": 15.057632,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 6.243167204013188e-05,
+            "src": 2,
+            "dst": 2,
+            "port": 4,
+            "host": ""
+        },
+        {
+            "avg_utilization": 14.401632,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0021414246101134375,
+            "src": 6,
+            "dst": 3,
+            "port": 0,
+            "host": ""
+        },
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 6,
+            "dst": 2,
+            "port": 1,
+            "host": ""
+        },
+        {
+            "avg_utilization": 17.860352,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.00213102553205325,
+            "src": 6,
+            "dst": 6,
+            "port": 2,
+            "host": ""
+        },
+        {
+            "avg_utilization": 20.020768,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.05199293522447063,
+            "src": 4,
+            "dst": 3,
+            "port": 0,
+            "host": ""
+        },
+        {
+            "avg_utilization": 0.038912,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 4,
+            "dst": 2,
+            "port": 1,
+            "host": ""
+        },
+        {
+            "avg_utilization": 9.818304,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0009312848856791875,
+            "src": 4,
+            "dst": 7,
+            "port": 2,
+            "host": ""
+        },
+        {
+            "avg_utilization": 10.885632,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.0,
+            "src": 4,
+            "dst": 3,
+            "port": 3,
+            "host": ""
+        },
+        {
+            "avg_utilization": 4.870112,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 2.618260326263625e-06,
+            "src": 7,
+            "dst": 4,
+            "port": 0,
+            "host": ""
+        },
+        {
+            "avg_utilization": 9.799808,
+            "avg_packets_lost": 0.0,
+            "avg_packet_size": 0.002078533052360625,
+            "src": 7,
+            "dst": 7,
+            "port": 1,
+            "host": ""
+        }
+    ]
+}

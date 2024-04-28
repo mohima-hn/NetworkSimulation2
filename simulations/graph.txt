@@ -1,0 +1,193 @@
+graph [
+  directed 1
+  levelsToS 3
+  node [
+    id 2
+    label "2"
+    schedulingPolicy "FIFO"
+    tosToQoSqueue "0,1,2"
+    bufferSizes "16000"
+    schedulingWeights "-"
+    levelsQoS 1
+  ]
+  node [
+    id 1
+    label "1"
+    schedulingPolicy "FIFO"
+    tosToQoSqueue "0,1,2"
+    bufferSizes "16000"
+    schedulingWeights "-"
+    levelsQoS 1
+  ]
+  node [
+    id 3
+    label "3"
+    schedulingPolicy "FIFO"
+    tosToQoSqueue "0,1,2"
+    bufferSizes "16000"
+    schedulingWeights "-"
+    levelsQoS 1
+  ]
+  node [
+    id 4
+    label "4"
+    schedulingPolicy "FIFO"
+    tosToQoSqueue "0,1,2"
+    bufferSizes "16000"
+    schedulingWeights "-"
+    levelsQoS 1
+  ]
+  node [
+    id 7
+    label "7"
+    schedulingPolicy "FIFO"
+    tosToQoSqueue "0,1,2"
+    bufferSizes "16000"
+    schedulingWeights "-"
+    levelsQoS 1
+  ]
+  node [
+    id 6
+    label "6"
+    schedulingPolicy "FIFO"
+    tosToQoSqueue "0,1,2"
+    bufferSizes "16000"
+    schedulingWeights "-"
+    levelsQoS 1
+  ]
+  node [
+    id 5
+    label "5"
+    schedulingPolicy "FIFO"
+    tosToQoSqueue "0,1,2"
+    bufferSizes "16000"
+    schedulingWeights "-"
+    levelsQoS 1
+  ]
+  edge [
+    source 2
+    target 3
+    bandwidth 1000000
+    weight 1
+    port 0
+  ]
+  edge [
+    source 2
+    target 4
+    bandwidth 1000000
+    weight 1
+    port 1
+  ]
+  edge [
+    source 2
+    target 6
+    bandwidth 1000000
+    weight 1
+    port 2
+  ]
+  edge [
+    source 2
+    target 1
+    bandwidth 1000000
+    weight 1
+    port 3
+  ]
+  edge [
+    source 1
+    target 2
+    bandwidth 1000000
+    weight 1
+    port 0
+  ]
+  edge [
+    source 1
+    target 3
+    bandwidth 1000000
+    weight 1
+    port 1
+  ]
+  edge [
+    source 1
+    target 5
+    bandwidth 1000000
+    weight 1
+    port 2
+  ]
+  edge [
+    source 3
+    target 2
+    bandwidth 1000000
+    weight 1
+    port 0
+  ]
+  edge [
+    source 3
+    target 1
+    bandwidth 1000000
+    weight 1
+    port 1
+  ]
+  edge [
+    source 3
+    target 6
+    bandwidth 1000000
+    weight 1
+    port 2
+  ]
+  edge [
+    source 3
+    target 4
+    bandwidth 1000000
+    weight 1
+    port 3
+  ]
+  edge [
+    source 4
+    target 3
+    bandwidth 1000000
+    weight 1
+    port 0
+  ]
+  edge [
+    source 4
+    target 2
+    bandwidth 1000000
+    weight 1
+    port 1
+  ]
+  edge [
+    source 4
+    target 7
+    bandwidth 1000000
+    weight 1
+    port 2
+  ]
+  edge [
+    source 7
+    target 4
+    bandwidth 1000000
+    weight 1
+    port 0
+  ]
+  edge [
+    source 6
+    target 3
+    bandwidth 1000000
+    weight 1
+    port 0
+  ]
+  edge [
+    source 6
+    target 2
+    bandwidth 1000000
+    weight 1
+    port 1
+  ]
+  edge [
+    source 5
+    target 1
+    bandwidth 1000000
+    weight 2
+    port 0
+  ]
+]
