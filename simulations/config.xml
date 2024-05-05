@@ -1,15 +1,15 @@
-<?xml version = "1.0"?>
-<OSPFASConfig xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "OSPF.xsd">
-<Area id="0.0.0.0">
-       <AddressRange address="router5>router1" mask="router5>router1" status="Advertise"/>
-       <AddressRange address="router1>router5" mask="router1>router5" status="Advertise"/>
-       <AddressRange address="host1" mask="host1"/>
-       <AddressRange address="host5" mask="host5"/>
+<?xml version="1.0"?>
+<OSPFASConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="OSPF.xsd" >
+<Area id="0.0.0.0" >
+       <AddressRange address="router5>router1" mask="router5>router1" status="Advertise" />
+       <AddressRange address="router1>router5" mask="router1>router5" status="Advertise" />
+       <AddressRange address="host1" mask="host1" />
+       <AddressRange address="host5" mask="host5" />
 </Area>
 
 <Area id="0.0.0.1">
-       <AddressRange address="host4" mask="host4"/>
-       <AddressRange address="host7" mask="host7"/>
+       <AddressRange address="host4" mask="host4" />
+       <AddressRange address="host7" mask="host7" />
        <AddressRange address="router4>router7" mask="router4>router7" />
        <AddressRange address="router7>router4" mask="router7>router4" />
 </Area>
@@ -25,52 +25,51 @@
        <AddressRange address="host3" mask="host3" />
        <AddressRange address="host6" mask="host6" />
 </Area>
-
-
 <Router name="router2" RFC1583Compatible="true" >
-    <PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[3]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <BroadcastInterface ifName="ppp[4]" areaID="0.0.0.1" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[3]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<BroadcastInterface ifName="ppp[4]" areaID="0.0.0.1" interfaceOutputCost="1" />
 </Router>
 
 <Router name="router1" RFC1583Compatible="true" >
-    <PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <BroadcastInterface ifName="ppp[3]" areaID="0.0.0.1" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<BroadcastInterface ifName="ppp[3]" areaID="0.0.0.1" interfaceOutputCost="1" />
 </Router>
 
 <Router name="router3" RFC1583Compatible="true" >
-    <PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[3]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <BroadcastInterface ifName="ppp[4]" areaID="0.0.0.1" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[3]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<BroadcastInterface ifName="ppp[4]" areaID="0.0.0.1" interfaceOutputCost="1" />
 </Router>
 
 <Router name="router4" RFC1583Compatible="true" >
-    <PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <BroadcastInterface ifName="ppp[3]" areaID="0.0.0.1" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[2]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<BroadcastInterface ifName="ppp[3]" areaID="0.0.0.1" interfaceOutputCost="1" />
 </Router>
 
 <Router name="router7" RFC1583Compatible="true" >
-    <PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <BroadcastInterface ifName="ppp[1]" areaID="0.0.0.1" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<BroadcastInterface ifName="ppp[1]" areaID="0.0.0.1" interfaceOutputCost="1" />
 </Router>
 
 <Router name="router6" RFC1583Compatible="true" >
-    <PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <BroadcastInterface ifName="ppp[2]" areaID="0.0.0.1" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[1]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<BroadcastInterface ifName="ppp[2]" areaID="0.0.0.1" interfaceOutputCost="1" />
 </Router>
 
 <Router name="router5" RFC1583Compatible="true" >
-    <PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
-    <BroadcastInterface ifName="ppp[1]" areaID="0.0.0.1" interfaceOutputCost="1" />
+<PointToPointInterface ifName="ppp[0]" areaID="0.0.0.0" interfaceOutputCost="1" />
+<BroadcastInterface ifName="ppp[1]" areaID="0.0.0.1" interfaceOutputCost="1" />
 </Router>
 
 </OSPFASConfig>
+
