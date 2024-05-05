@@ -4,7 +4,7 @@
 # @author Mohima Hossain
 
 # change our current directory to ~/Projects
-cd /samples/mohima/NetworkSimulation2/simulations/
+#cd /samples/mohima/NetworkSimulation2/simulations
 
 #print working directory
 pwd
@@ -19,7 +19,7 @@ echo creating config.xml
 #**********Get the value from the input text file and creating omnetpp.ini************
 #=====================================================================================
 echo ---------------------------------------------------------------------------------
-echo Loading the input text file
+echo Loading the traffic.json file to parse the input
 echo ---------------------------------------------------------------------------------
 python load_script.py
 echo Creating omnetpp.ini with configuration
@@ -28,13 +28,13 @@ pwd
 #======================================================================================
 #***********************************Buid the project***********************************
 #======================================================================================
-echo -------------------------------------------------------------------------------------
-echo Build the project
-echo -------------------------------------------------------------------------------------
-cd ../
-make cleanall
-make makefiles
-make MODE=release all V=1
+#echo -------------------------------------------------------------------------------------
+#echo Build the project
+#echo -------------------------------------------------------------------------------------
+#cd ../
+#make cleanall
+#make makefiles
+#make MODE=release all V=1
 
 
 #23:48:22 **** Incremental Build of configuration release for project inet4.5 ****
@@ -54,9 +54,9 @@ make MODE=release all V=1
 echo -------------------------------------------------------------------------------------
 echo Run the simulation
 echo -------------------------------------------------------------------------------------
-pwd
-cd simulations/
-pwd
+#pwd
+#cd simulations/
+#pwd
 opp_run -m -u Cmdenv -n .:../src:../../inet4.5/examples:../../inet4.5/showcases:../../inet4.5/src:../../inet4.5/tests/validation:../../inet4.5/tests/networks:../../inet4.5/tutorials -x inet.common.selfdoc:inet.linklayer.configurator.gatescheduling.z3:inet.emulation:inet.showcases.visualizer.osg:inet.examples.emulation:inet.showcases.emulation:inet.transportlayer.tcp_lwip:inet.applications.voipstream:inet.visualizer.osg:inet.examples.voipstream --image-path=../../inet4.5/images -l ../../inet4.5/src/INET omnetpp.ini
 #=========================================================================================
 #********************************Save the simulation result*******************************
@@ -72,6 +72,10 @@ pwd
 opp_scavetool x *.sca -o result_scaler.json
 opp_scavetool x General-#0.sca -f module=~\"NetworkSimulation2.router**.ppp**.queue.fifo\" -o router.json
 #strace
-
+cd ../
+echo creating simulationResult json
+python script_simuResult.py
+echo creating link Usage json
+python script_link_Usage.py
 
 
