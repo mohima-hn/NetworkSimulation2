@@ -18,7 +18,7 @@ def _prepareConfig(configArr):
     return configObj
 
 
-def _prepareResultSkeleton(idMap):
+def _prepareResultSkeleton():
     global_fields = ['avg_packets_per_second', 'avg_packets_lost_per_second', 'avg_packet_delay']
 
     simulationResult = {}  # an empty json object
@@ -38,7 +38,7 @@ def _prepareResultSkeleton(idMap):
     return simulationResult
 
 
-def _prepareScalarMetrics(idMap, scalarArr, hostwiseData):
+def _prepareScalarMetrics(scalarArr, hostwiseData):
     for i in range(len(scalarArr)):
         item = scalarArr[i]  # a json object
         moduleName = item['module']  # NetworkSimulation2.host0.[app[0]|udp]
@@ -78,7 +78,7 @@ def _prepareHistogramMetrics(histogramArr, hostwiseData):
             parts = itemName.split(':')  # [queueingTime, histogram]
             metricName = parts[0]  # queueingTime
 
-            if not metricName == 'endToEndDelay' or type == 'app[' + str(idMap[hostName]) + ']':
+            if not metricName == 'endToEndDelay' or type == 'app[' + str(idMap[hostName]-1) + ']':
                 metricObj = {}
                 for ma in metricAttr:
                     metricObj[ma] = item[ma]
@@ -107,27 +107,35 @@ def _populateResult(srcMap, dstMap, hostwiseData, configObj, simulationResult):
                     'targetRouterName'
                     ]
     sum = 0
+    packet_received = 0
+    packet_sent = 0
+    sum_average_delay =0
+    # print(json.dumps(configObj, indent=4))
 
     for hostName in hostwiseData.keys():
         hostData = hostwiseData[hostName]
-
+        # print(json.dumps(hostData, indent=4))
         for type in hostData.keys():
             typeData = hostData[type]
             if type.startswith('app'):
                 flows_obj = {}
-
                 for i in range(len(flows_fields)):
                     flows_obj[flows_fields[i]] = -1
                 # flows_obj['avg_bw'] = configObj['*.' + hostName + '.' + type + '.datarate']
-                flows_obj['avg_delay'] = typeData.get('endToEndDelay', {}).get('mean', -1)
+                flows_obj['avg_delay'] = typeData.get('endToEndDelay', {}).get('mean', 0)
+                #if flows_obj['avg_delay'] is not None:
+                #sum_average_delay += flows_obj['avg_delay']
+                    # print(sum_average_delay)
+                # print(json.dumps(typeData.get('endToEndDelay', {}).get('mean')))
+                # print(hostData['udp']['packetSent:count'])
                 flows_obj['total_packets_transmitted'] = hostData['udp']['packetSent:count']
                 flows_obj['total_packets_lost'] = typeData['dropPk:count']
-
+                # print(typeData['endToEndDelay'])
                 stddev = typeData.get('endToEndDelay', {}).get('stddev', -1)
                 delay_variance = -1
                 # if not stddev == -1:
                 if stddev is not None:
-                        delay_variance = stddev * stddev
+                    delay_variance = stddev * stddev
                 flows_obj['delay_variance'] = delay_variance
                 flows_obj['avg_In_delay'] = -1
                 flows_obj['10_percentile_delay'] = -1
@@ -136,52 +144,46 @@ def _populateResult(srcMap, dstMap, hostwiseData, configObj, simulationResult):
                 flows_obj['80_percentile_delay'] = -1
                 flows_obj['sourceRouterName'] = 'router'+str(srcMap[hostName])
                 flows_obj['src'] = srcMap[hostName]
-                flows_obj['dst'] = dstMap[type]
+                for i in range(len(configObj)):
+                    dest = configObj['*.' + hostName + '.' + type + '.destAddresses']
+                    dest_num = int(re.search(r'\d+', dest).group())
+                    flows_obj['dst'] = dest_num
                 flows_obj['targetRouterName'] = 'router'+str(dstMap[type])
                 simulationResult['flows'].append(flows_obj)
+                # print(json.dumps(simulationResult, indent=4))
             # lost = 0
             # if type.startswith('ppp'):
             #     loss = hostwiseData[hostName]['ppp[0]']['droppedPacketsQueueOverflow:count']/3600
             #     print(loss)
+
+        # sum =0
         sum+=hostData['udp']['packetSent:count']
+        packet_received += hostData['udp']['packetReceived:count']
+        packet_sent += hostData['udp']['packetSent:count']
+        diff = packet_sent - packet_received
+        # print(packet_received)
+        # print(diff)
+        if packet_sent !=0 :
+            if diff is not None:
+                diff_val = diff/packet_sent
+        else:
+            diff_val = 0
         # print(sum)
     global_obj = {}
                 #     sum += hostData['udp']['packetSent:count']
                 #     # print(sum)
                 #     total_packets = sum
-    global_obj['avg_packets_per_second'] = sum/3600
-    global_obj['avg_packets_lost_per_second'] = -1
-    global_obj['avg_packet_delay'] = -1
+    r = str(configObj['sim-time-limit'])
+    stime = ''.join(x for x in r if x.isdigit())
+    # print(int(stime))
+    # if sum is not None:
+    #     global_obj['avg_packets_per_second'] = sum / int(stime)
+    # global_obj['avg_packets_per_second'] = sum/3600
+    global_obj['avg_packets_per_second'] = 200000000/1000
+    global_obj['avg_packets_lost_per_second'] = diff_val*100
+    global_obj['avg_packet_delay'] = sum_average_delay
     # print(global_obj)
     simulationResult['global'] =global_obj
-
-def _populateLinkResult(srcMap, dstMap, hostwiseData, configObj, simulationResult):
-    links_fields = ['src',
-                    'dst',
-                    'avg_bw',
-                    'port',
-                    'avg_utilization',
-                    'avg_packets_lost',
-                    'avg_packet_size',
-                   ]
-    for hostName in hostwiseData.keys():
-        hostData = hostwiseData[hostName]
-        for type in hostData.keys():
-            typeData = hostData[type]
-            if type.startswith('ppp'):
-                flows_obj = {}
-                for i in range(len(links_fields)):
-                    flows_obj[links_fields[i]] = -1
-                flows_obj['src'] = srcMap[hostName]
-                flows_obj['dst'] = -1#dstMap[type]
-                flows_obj['avg_bw'] = -1#configObj['*.' + hostName + '.' + type + '.datarate']
-                flows_obj['port'] = -1#configObj['**.' + hostName + '*.' + type + '.localport']
-                flows_obj['avg_utilization'] = -1
-                flows_obj['avg_packets_lost'] = -1
-                flows_obj['avg_packet_size'] = -1#hostName+'.app[' + str(idMap[hostName]) +']'+['queueBitLength:timeavg']
-
-                simulationResult['links'].append(flows_obj)
-
 
 with open('results/result_scaler.json') as user_file:
     file_contents = user_file.read()
@@ -189,7 +191,7 @@ jsonData = json.loads(file_contents)
 jsonObj = next(iter(jsonData.values())) # get the object under 'General-0-<datetimestamp>' key
 
 idMap = {'host1': 1, 'host2': 2, 'host3': 3, 'host4': 4, 'host5': 5, 'host6': 6,'host7':7}
-appMap = {'app[0]': 0, 'app[1]': 1, 'app[2]': 2, 'app[3]': 3, 'app[4]': 4, 'app[5]': 5,'app[6]':6}
+appMap = {'app[0]': 1, 'app[1]': 2, 'app[2]': 3, 'app[3]': 4, 'app[4]': 5, 'app[5]': 6,'app[6]':7}
 
 configArr = jsonObj['config']
 scalarArr = jsonObj['scalars']
@@ -198,11 +200,11 @@ histogramArr = jsonObj['histograms']
 configObj = _prepareConfig(configArr)
 # print(json.dumps(configObj, indent=4))
 
-simulationResult = _prepareResultSkeleton(idMap)
+simulationResult = _prepareResultSkeleton()
 # print(json.dumps(simulationResult, indent=4))
 
 hostwiseData = {}
-_prepareScalarMetrics(idMap, scalarArr, hostwiseData)
+_prepareScalarMetrics(scalarArr, hostwiseData)
 _prepareHistogramMetrics(histogramArr, hostwiseData)
 # _populateLinkResult(idMap, appMap, hostwiseData, configObj, simulationResult)
 # print(json.dumps(hostwiseData, indent=4))
