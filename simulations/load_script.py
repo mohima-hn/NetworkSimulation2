@@ -4,13 +4,13 @@
 import csv
 import json
 
-with open('traffic_input.json') as user_file:
+with open('traffic.json') as user_file:
     file_contents = user_file.read()
 jsonObj = json.loads(file_contents)
 
 
 max_bandwidth = jsonObj["global"]["max_bandwidth"]
-duration = jsonObj["global"]["duration"]
+duration = jsonObj["global"]["duration"]*60
 flows_arr = jsonObj["flows"]
 hostdict={}
 
@@ -33,7 +33,7 @@ f.write('network = NetworkSimulation2\n'
         '**.router*.ppp[*].queue.typename  = "inet.examples.inet.netperfmeter.REDQueue" \n'
         # '**.queue.numQueues = 2\n'
         '**.router*.ppp[*].queue.packetCapacity = 10\n'
-        '**.router*.ppp[*].PacketBuffer = 16000\n'
+        # '**.router*.ppp[*].PacketBuffer = 16000\n'
         # **.router*.app[*].source.productionInterval = exponential(200us)
         # **.router*.app[*].phyLayer.transmitter.utilization.interval = 0.2s
         '\n')
@@ -63,7 +63,7 @@ for item in hostdict.keys():
         buffer += ('*.host' + item + '.app[' + str(i) + '].typename = "UdpBasicBurst"\n'
                    '*.host' + item + '.app[' + str(i) + '].destAddresses = "host' + str(hostdict[item][i]["dest"]) + '"\n'
                    '*.host' + item + '.app[' + str(i) + '].datarate = ' + str(hostdict[item][i]["avg_bw"]) + '\n'
-                   '*.host' + item + '.app[' + str(i) + '].messageLength = ' + str(hostdict[item][i]["pkt_size"]) + 'Byte\n'
+                   '*.host' + item + '.app[' + str(i) + '].messageLength = ' + str(hostdict[item][i]["pkt_size"]) + 'B\n'
                    '*.host' + item + '.app[' + str(i) + '].tos = ' + str(hostdict[item][i]["tos"]) + '\n'
                    )
         if hostdict[item][i]["time_dist"] == 0:
@@ -84,9 +84,7 @@ for item in hostdict.keys():
 f.write(buffer)
 f.close()
 #wrinting end
-#open and read the file after the appending:
-# f = open("omnetpp.ini", "r")
-#print(f.read())
+
 
 
 
