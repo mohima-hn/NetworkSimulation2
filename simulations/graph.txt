@@ -187,7 +187,7 @@ graph [
     source 5
     target 1
     bandwidth 1000000
-    weight 2
+    weight 1
     port 0
   ]
 ]
